@@ -1,10 +1,36 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import FavoriteItem from '../../components/Favorites/FavoriteItem'; // Componente para mostrar cada favorito
+import EmptyFavorites from '../../components/Favorites/EmptyFavorites'; // Componente para mostrar un estado vacío
 
-export default function Favorite() {
+export default function FavoritesScreen() {
+  const favorites = []; // Lista de favoritos, reemplázala con datos de tu estado o fuente de datos
+
   return (
-    <View>
-      <Text>F</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Mis Favoritos</Text>
+      {favorites.length > 0 ? (
+        <FlatList
+          data={favorites}
+          renderItem={({ item }) => <FavoriteItem item={item} />}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      ) : (
+        <EmptyFavorites />
+      )}
     </View>
-  )
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#f9f9f9',
+  },
+  title: {
+    fontSize: 24,
+    fontFamily: 'Montserrat-Bold',
+    marginBottom: 20,
+  },
+});
