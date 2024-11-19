@@ -3,13 +3,11 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 export default function EmptyFavorites() {
   return (
-  
     <View style={styles.container}>
-      <Image source={require('./../../assets/images/empty.jpg')} style={styles.image} />
+      <Image source={require('./../../assets/images/buscar.png')} style={styles.image} />
       <Text style={styles.message}>Aún no tienes favoritos.</Text>
       <Text style={styles.subMessage}>Explora y guarda tus veterinarios favoritos aquí.</Text>
     </View>
-    
   );
 }
 

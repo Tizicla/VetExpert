@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import FavoriteItem from '../../components/Favorites/FavoriteItem'; // Componente para mostrar cada favorito
 import EmptyFavorites from '../../components/Favorites/EmptyFavorites'; // Componente para mostrar un estado vacío
+import Colors from '../../constants/Colors'
 
 export default function FavoritesScreen() {
   const favorites = []; // Lista de favoritos, reemplázala con datos de tu estado o fuente de datos
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: Colors.background,
   },
   title: {
     fontSize: 24,

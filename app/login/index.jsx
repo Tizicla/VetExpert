@@ -1,44 +1,8 @@
 import { View, Text, Image, Pressable } from 'react-native'
-import React, { useCallback } from 'react'
-import { Link } from 'expo-router'
-import { useOAuth } from '@clerk/clerk-expo'
-import * as Linking from 'expo-linking'
-import * as WebBrowser from 'expo-web-browser'
+import React, {  } from 'react'
 import Colors from './../../constants/Colors'
 
-export const useWarmUpBrowser = () => {
-  React.useEffect(() => {
-    // Warm up the browser
-    void WebBrowser.warmUpAsync()
-    return () => {
-      void WebBrowser.coolDownAsync()
-    }
-  }, [])
-}
-
-WebBrowser.maybeCompleteAuthSession()
-
-export default function LoginScreen() {
-  useWarmUpBrowser();
-
-  const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google'})
-
-  const onPress = useCallback(async () => {
-    try {
-      const { createdSessionId, signIn, singUp, setActive } = await startOAuthFlow({
-        redirectUrl: Linking.createURL('../(tabs)/home', { scheme: 'myapp'}),
-    })
-
-    if (createdSessionId) {
-      
-    } else {
-      // The user closed the browser without signing in
-    }
-  } catch (error) {
-    console.error('OAuth error', err)
-  }
-}, [])
-
+export default function Login() {
 
 
   return (
